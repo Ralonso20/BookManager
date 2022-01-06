@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QLineEdit,
     QPushButton, QSizePolicy, QSpinBox, QTextEdit,
     QWidget)
 
-class NewBookWindow(object):
+class NewBookForm(object):
     def setupUi(self, newBookWindow):
         if not newBookWindow.objectName():
             newBookWindow.setObjectName(u"newBookWindow")
