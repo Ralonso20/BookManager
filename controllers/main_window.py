@@ -11,11 +11,17 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
         self.setupUi(self) #se llama a la funcion para crear los componentes de la interfaz
         #para que aparezcan los iconos correctamente hay que corregir los paths de los views
 
+        #debemos enlazar open_new_book_window con el boton que abre la ventana
+        self.open_new_book_button.clicked.connect(self.open_new_book_window)
+
     def open_book(self):
         pass
 
     def open_new_book_window(self):
-        pass
+        from controllers.new_book_window import NewBookWindow
+        window = NewBookWindow(self) #recive como parametro la instancia de la clase padre
+        #asi que en new_book_window debemos agregar ese parametro
+        window.show()
 
     def open_edit_book_window(self):
         pass

@@ -30,12 +30,12 @@ class Bookdepository(object):
         self.buttonframe.setGeometry(QRect(10, 10, 940, 90))
         self.buttonframe.setFrameShape(QFrame.StyledPanel)
         self.buttonframe.setFrameShadow(QFrame.Raised)
-        self.openBookButton = QPushButton(self.buttonframe)
-        self.openBookButton.setObjectName(u"openBookButton")
-        self.openBookButton.setGeometry(QRect(20, 10, 50, 50))
-        self.openBookButton.setMaximumSize(QSize(70, 50))
-        self.openBookButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openBookButton.setStyleSheet(u"QPushButton:hover\n"
+        self.open_Book_Button = QPushButton(self.buttonframe)
+        self.open_Book_Button.setObjectName(u"open_Book_Button")
+        self.open_Book_Button.setGeometry(QRect(20, 10, 50, 50))
+        self.open_Book_Button.setMaximumSize(QSize(70, 50))
+        self.open_Book_Button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.open_Book_Button.setStyleSheet(u"QPushButton:hover\n"
 "{\n"
 "	border-style: solid;\n"
 "   	background-color:#bbdefb;\n"
@@ -48,21 +48,21 @@ class Bookdepository(object):
 "}")
         icon = QIcon()
         icon.addFile(u"./assets/icons/open-book-icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.openBookButton.setIcon(icon)
-        self.openBookButton.setIconSize(QSize(50, 50))
-        self.openBookButton.setFlat(True)
+        self.open_Book_Button.setIcon(icon)
+        self.open_Book_Button.setIconSize(QSize(50, 50))
+        self.open_Book_Button.setFlat(True)
         self.label = QLabel(self.buttonframe)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(10, 60, 81, 16))
         self.label_2 = QLabel(self.buttonframe)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(100, 60, 81, 16))
-        self.openBookButton_2 = QPushButton(self.buttonframe)
-        self.openBookButton_2.setObjectName(u"openBookButton_2")
-        self.openBookButton_2.setGeometry(QRect(110, 10, 50, 50))
-        self.openBookButton_2.setMaximumSize(QSize(70, 50))
-        self.openBookButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openBookButton_2.setStyleSheet(u"QPushButton:hover\n"
+        self.open_new_book_button = QPushButton(self.buttonframe)
+        self.open_new_book_button.setObjectName(u"open_new_book_button")
+        self.open_new_book_button.setGeometry(QRect(110, 10, 50, 50))
+        self.open_new_book_button.setMaximumSize(QSize(70, 50))
+        self.open_new_book_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.open_new_book_button.setStyleSheet(u"QPushButton:hover\n"
 "{\n"
 "	border-style: solid;\n"
 "   	background-color:#bbdefb;\n"
@@ -75,18 +75,18 @@ class Bookdepository(object):
 "}")
         icon1 = QIcon()
         icon1.addFile(u"./assets/icons/add-book-icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.openBookButton_2.setIcon(icon1)
-        self.openBookButton_2.setIconSize(QSize(50, 50))
-        self.openBookButton_2.setFlat(True)
+        self.open_new_book_button.setIcon(icon1)
+        self.open_new_book_button.setIconSize(QSize(50, 50))
+        self.open_new_book_button.setFlat(True)
         self.label_3 = QLabel(self.buttonframe)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(200, 60, 81, 16))
-        self.openBookButton_3 = QPushButton(self.buttonframe)
-        self.openBookButton_3.setObjectName(u"openBookButton_3")
-        self.openBookButton_3.setGeometry(QRect(210, 10, 50, 50))
-        self.openBookButton_3.setMaximumSize(QSize(70, 50))
-        self.openBookButton_3.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openBookButton_3.setStyleSheet(u"QPushButton:hover\n"
+        self.open_edit_book_button = QPushButton(self.buttonframe)
+        self.open_edit_book_button.setObjectName(u"open_edit_book_button")
+        self.open_edit_book_button.setGeometry(QRect(210, 10, 50, 50))
+        self.open_edit_book_button.setMaximumSize(QSize(70, 50))
+        self.open_edit_book_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.open_edit_book_button.setStyleSheet(u"QPushButton:hover\n"
 "{\n"
 "	border-style: solid;\n"
 "   	background-color:#bbdefb;\n"
@@ -99,18 +99,18 @@ class Bookdepository(object):
 "}")
         icon2 = QIcon()
         icon2.addFile(u"./assets/icons/edit-book.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.openBookButton_3.setIcon(icon2)
-        self.openBookButton_3.setIconSize(QSize(50, 50))
-        self.openBookButton_3.setFlat(True)
+        self.open_edit_book_button.setIcon(icon2)
+        self.open_edit_book_button.setIconSize(QSize(50, 50))
+        self.open_edit_book_button.setFlat(True)
         self.label_4 = QLabel(self.buttonframe)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(290, 60, 91, 16))
-        self.openBookButton_4 = QPushButton(self.buttonframe)
-        self.openBookButton_4.setObjectName(u"openBookButton_4")
-        self.openBookButton_4.setGeometry(QRect(310, 10, 50, 50))
-        self.openBookButton_4.setMaximumSize(QSize(70, 50))
-        self.openBookButton_4.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openBookButton_4.setStyleSheet(u"QPushButton:hover\n"
+        self.delete_book_button = QPushButton(self.buttonframe)
+        self.delete_book_button.setObjectName(u"delete_book_button")
+        self.delete_book_button.setGeometry(QRect(310, 10, 50, 50))
+        self.delete_book_button.setMaximumSize(QSize(70, 50))
+        self.delete_book_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.delete_book_button.setStyleSheet(u"QPushButton:hover\n"
 "{\n"
 "	border-style: solid;\n"
 "   	background-color:#bbdefb;\n"
@@ -123,9 +123,9 @@ class Bookdepository(object):
 "}")
         icon3 = QIcon()
         icon3.addFile(u"./assets/icons/delete-book-icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.openBookButton_4.setIcon(icon3)
-        self.openBookButton_4.setIconSize(QSize(50, 50))
-        self.openBookButton_4.setFlat(True)
+        self.delete_book_button.setIcon(icon3)
+        self.delete_book_button.setIconSize(QSize(50, 50))
+        self.delete_book_button.setFlat(True)
         self.frame = QFrame(Bookdepository)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(10, 110, 940, 40))
@@ -169,14 +169,14 @@ class Bookdepository(object):
 
     def retranslateUi(self, Bookdepository):
         Bookdepository.setWindowTitle(QCoreApplication.translate("Bookdepository", u"Library", None))
-        self.openBookButton.setText("")
+        self.open_Book_Button.setText("")
         self.label.setText(QCoreApplication.translate("Bookdepository", u"<html><head/><body><p><span style=\" font-weight:600;\">Open Book</span></p></body></html>", None))
         self.label_2.setText(QCoreApplication.translate("Bookdepository", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Add Book</span></p><p align=\"center\"><span style=\" font-weight:600;\"><br/></span></p></body></html>", None))
-        self.openBookButton_2.setText("")
+        self.open_new_book_button.setText("")
         self.label_3.setText(QCoreApplication.translate("Bookdepository", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Edit Book</span></p></body></html>", None))
-        self.openBookButton_3.setText("")
+        self.open_edit_book_button.setText("")
         self.label_4.setText(QCoreApplication.translate("Bookdepository", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Delete Book</span></p></body></html>", None))
-        self.openBookButton_4.setText("")
+        self.delete_book_button.setText("")
         self.label_5.setText(QCoreApplication.translate("Bookdepository", u"<html><head/><body><p>Buscar por:</p></body></html>", None))
         self.searchButton.setText(QCoreApplication.translate("Bookdepository", u"Search", None))
         self.refreshbutton.setText(QCoreApplication.translate("Bookdepository", u"Refresh", None))

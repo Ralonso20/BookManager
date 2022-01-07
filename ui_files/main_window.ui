@@ -31,7 +31,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="openBookButton">
+   <widget class="QPushButton" name="open_Book_Button">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -105,7 +105,7 @@ QPushButton:pressed
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Add Book&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="openBookButton_2">
+   <widget class="QPushButton" name="open_new_book_button">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -166,7 +166,7 @@ QPushButton:pressed
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Edit Book&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="openBookButton_3">
+   <widget class="QPushButton" name="open_edit_book_button">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -227,7 +227,7 @@ QPushButton:pressed
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Delete Book&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="openBookButton_4">
+   <widget class="QPushButton" name="delete_book_button">
     <property name="geometry">
      <rect>
       <x>310</x>
