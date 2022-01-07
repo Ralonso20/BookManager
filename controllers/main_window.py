@@ -13,6 +13,7 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
 
         #debemos enlazar open_new_book_window con el boton que abre la ventana
         self.open_new_book_button.clicked.connect(self.open_new_book_window)
+        self.open_edit_book_button.clicked.connect(self.open_edit_book_window)
 
     def open_book(self):
         pass
@@ -24,7 +25,9 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
         window.show()
 
     def open_edit_book_window(self):
-        pass
+        from controllers.edit_book_window import EditBookWindow
+        window = EditBookWindow(self)
+        window.show()
 
     def remove_book(self):
         pass

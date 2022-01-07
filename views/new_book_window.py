@@ -34,9 +34,9 @@ class NewBookForm(object):
         self.titleLineEdit = QLineEdit(newBookWindow)
         self.titleLineEdit.setObjectName(u"titleLineEdit")
         self.titleLineEdit.setGeometry(QRect(10, 80, 380, 20))
-        self.titleLineEdit_2 = QLineEdit(newBookWindow)
-        self.titleLineEdit_2.setObjectName(u"titleLineEdit_2")
-        self.titleLineEdit_2.setGeometry(QRect(10, 130, 380, 20))
+        self.categoryLineEdit = QLineEdit(newBookWindow)
+        self.categoryLineEdit.setObjectName(u"categoryLineEdit")
+        self.categoryLineEdit.setGeometry(QRect(10, 130, 380, 20))
         self.label_3 = QLabel(newBookWindow)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(10, 110, 71, 21))
@@ -44,6 +44,7 @@ class NewBookForm(object):
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(10, 160, 71, 21))
         self.pagQtySpinBox = QSpinBox(newBookWindow)
+        self.pagQtySpinBox.setMaximum(2000)
         self.pagQtySpinBox.setObjectName(u"pagQtySpinBox")
         self.pagQtySpinBox.setGeometry(QRect(10, 190, 126, 21))
         self.label_5 = QLabel(newBookWindow)
@@ -52,11 +53,11 @@ class NewBookForm(object):
         self.filePathLineEdit = QLineEdit(newBookWindow)
         self.filePathLineEdit.setObjectName(u"filePathLineEdit")
         self.filePathLineEdit.setGeometry(QRect(10, 250, 271, 20))
-        self.slectPathButton = QPushButton(newBookWindow)
-        self.slectPathButton.setObjectName(u"slectPathButton")
-        self.slectPathButton.setGeometry(QRect(300, 250, 91, 21))
-        self.slectPathButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.slectPathButton.setStyleSheet(u"QPushButton\n"
+        self.selectPathButton = QPushButton(newBookWindow)
+        self.selectPathButton.setObjectName(u"selectPathButton")
+        self.selectPathButton.setGeometry(QRect(300, 250, 91, 21))
+        self.selectPathButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.selectPathButton.setStyleSheet(u"QPushButton\n"
 "{	\n"
 "	height: 2em;\n"
 " 	border-style: solid;\n"
@@ -70,7 +71,7 @@ class NewBookForm(object):
 "   	background-color:#0069c0;\n"
 "	color:white;\n"
 "}")
-        self.slectPathButton.setFlat(False)
+        self.selectPathButton.setFlat(False)
         self.label_6 = QLabel(newBookWindow)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setGeometry(QRect(10, 280, 91, 21))
@@ -96,11 +97,11 @@ class NewBookForm(object):
 "	color:white;\n"
 "}")
         self.addButton.setFlat(False)
-        self.addButton_2 = QPushButton(newBookWindow)
-        self.addButton_2.setObjectName(u"addButton_2")
-        self.addButton_2.setGeometry(QRect(300, 440, 91, 21))
-        self.addButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.addButton_2.setStyleSheet(u"QPushButton\n"
+        self.cancelButton = QPushButton(newBookWindow)
+        self.cancelButton.setObjectName(u"cancelButton")
+        self.cancelButton.setGeometry(QRect(300, 440, 91, 21))
+        self.cancelButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cancelButton.setStyleSheet(u"QPushButton\n"
 "{	\n"
 "	height: 2em;\n"
 " 	border-style: solid;\n"
@@ -114,7 +115,7 @@ class NewBookForm(object):
 "   	background-color:grey;\n"
 "	color:white;\n"
 "}")
-        self.addButton_2.setFlat(False)
+        self.cancelButton.setFlat(False)
 
         self.retranslateUi(newBookWindow)
 
@@ -128,9 +129,9 @@ class NewBookForm(object):
         self.label_3.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Category:</span></p></body></html>", None))
         self.label_4.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Pages:</span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Select file:</span></p></body></html>", None))
-        self.slectPathButton.setText(QCoreApplication.translate("newBookWindow", u"Select", None))
+        self.selectPathButton.setText(QCoreApplication.translate("newBookWindow", u"Select", None))
         self.label_6.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Description:</span></p></body></html>", None))
         self.addButton.setText(QCoreApplication.translate("newBookWindow", u"Add", None))
-        self.addButton_2.setText(QCoreApplication.translate("newBookWindow", u"Cancel", None))
+        self.cancelButton.setText(QCoreApplication.translate("newBookWindow", u"Cancel", None))
     # retranslateUi
 
