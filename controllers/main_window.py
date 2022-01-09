@@ -1,6 +1,11 @@
-from PySide6.QtWidgets import QWidget, QTableWidgetItem #se refiere al tipo de ventana creada en QTdesigner
+from PySide6.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView
+#se refiere al tipo de ventana creada en QTdesigner
+#QTableWidgetItem se utiliza para los datos
+#QAbstractItemView la utilizaremos para seleccionar toda las celdas correspondienes al libro
 from views.main_window import Bookdepository
 from db.books import select_all_books
+import os
+import webbrowser
 
 class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos clases
     def __init__(self):
@@ -17,10 +22,21 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
         self.open_edit_book_button.clicked.connect(self.open_edit_book_window)
 
         self.table_config()
-        self.populate_table(select_all_books())
+        self.populate_table()
+        self.refreshbutton.clicked.connect(self.populate_table)
+        self.open_Book_Button.clicked.connect(self.open_book)
 
-    def open_book(self):
-        pass
+    def open_book(self): #Abriremos los libros con la app predefinida del sistema
+        select_row = self.listbooktable.selectedItems() #debemos seleccionar primero la fila
+
+        if select_row:
+            path = select_row[5].text() #obtenemos el path en la posicion 5 y lo usamos como texto
+            #diferente instruccion en caso de mac,linux o windows
+            if os.name == 'posix':
+                webbrowser.open_new(path)
+            elif os.name == 'nt':
+                os.startfile(path)
+
 
     def open_new_book_window(self):
         from controllers.new_book_window import NewBookWindow
@@ -40,8 +56,10 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
         colum_headers = ("Book_ID", "Title", "Category", "Page Qty", "Read page Qty", "PATH", "Description")
         self.listbooktable.setColumnCount(len(colum_headers))
         self.listbooktable.setHorizontalHeaderLabels(colum_headers) #Enviamos los textos de cada columna
+        self.listbooktable.setSelectionBehavior(QAbstractItemView.SelectRows)
 
-    def populate_table(self,data): #esta funcion va a cargar los datos en la tabla
+    def populate_table(self): #esta funcion va a cargar los datos en la tabla
+        data = select_all_books() #Pedidmos la data directo de la consulta
         self.listbooktable.setRowCount(len(data)) #necesitamos la cantidad de registros de la tabla
 
         for(index_row, row) in enumerate(data): #recive el indice y los datos de cada fila, enumarate retorna las filas y los datos
