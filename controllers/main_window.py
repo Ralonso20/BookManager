@@ -36,6 +36,8 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
                 webbrowser.open_new(path)
             elif os.name == 'nt':
                 os.startfile(path)
+            
+            self.listbooktable.clearSelection()
 
 
     def open_new_book_window(self):
@@ -46,8 +48,15 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
 
     def open_edit_book_window(self):
         from controllers.edit_book_window import EditBookWindow
-        window = EditBookWindow(self)
-        window.show()
+        #para editar el libro necesitamos obtener el id
+        selected_row = self.listbooktable.selectedItems()
+        if selected_row:
+            book_id = int(selected_row[0].text())
+            window = EditBookWindow(self, book_id)
+            window.show()
+        
+        self.listbooktable.clearSelection() #limpiamos la seleccion de fila
+        
 
     def remove_book(self):
         pass

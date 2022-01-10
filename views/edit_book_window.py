@@ -34,9 +34,9 @@ class EditBookForm(object):
         self.titleLineEdit = QLineEdit(newBookWindow)
         self.titleLineEdit.setObjectName(u"titleLineEdit")
         self.titleLineEdit.setGeometry(QRect(10, 80, 380, 20))
-        self.titleLineEdit_2 = QLineEdit(newBookWindow)
-        self.titleLineEdit_2.setObjectName(u"titleLineEdit_2")
-        self.titleLineEdit_2.setGeometry(QRect(10, 130, 380, 20))
+        self.categoryLineEdit = QLineEdit(newBookWindow)
+        self.categoryLineEdit.setObjectName(u"categoryLineEdit")
+        self.categoryLineEdit.setGeometry(QRect(10, 130, 380, 20))
         self.label_3 = QLabel(newBookWindow)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(10, 110, 71, 21))
@@ -52,11 +52,11 @@ class EditBookForm(object):
         self.filePathLineEdit = QLineEdit(newBookWindow)
         self.filePathLineEdit.setObjectName(u"filePathLineEdit")
         self.filePathLineEdit.setGeometry(QRect(10, 250, 271, 20))
-        self.slectPathButton = QPushButton(newBookWindow)
-        self.slectPathButton.setObjectName(u"slectPathButton")
-        self.slectPathButton.setGeometry(QRect(300, 250, 91, 21))
-        self.slectPathButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.slectPathButton.setStyleSheet(u"QPushButton\n"
+        self.selectPathButton = QPushButton(newBookWindow)
+        self.selectPathButton.setObjectName(u"selectPathButton")
+        self.selectPathButton.setGeometry(QRect(300, 250, 91, 21))
+        self.selectPathButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.selectPathButton.setStyleSheet(u"QPushButton\n"
 "{	\n"
 "	height: 2em;\n"
 " 	border-style: solid;\n"
@@ -70,18 +70,18 @@ class EditBookForm(object):
 "   	background-color:#0069c0;\n"
 "	color:white;\n"
 "}")
-        self.slectPathButton.setFlat(False)
+        self.selectPathButton.setFlat(False)
         self.label_6 = QLabel(newBookWindow)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setGeometry(QRect(10, 280, 91, 21))
         self.descriptionTextEdit = QTextEdit(newBookWindow)
         self.descriptionTextEdit.setObjectName(u"descriptionTextEdit")
         self.descriptionTextEdit.setGeometry(QRect(10, 310, 380, 110))
-        self.addButton = QPushButton(newBookWindow)
-        self.addButton.setObjectName(u"addButton")
-        self.addButton.setGeometry(QRect(200, 440, 91, 21))
-        self.addButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.addButton.setStyleSheet(u"QPushButton\n"
+        self.editButton = QPushButton(newBookWindow)
+        self.editButton.setObjectName(u"editButton")
+        self.editButton.setGeometry(QRect(200, 440, 91, 21))
+        self.editButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.editButton.setStyleSheet(u"QPushButton\n"
 "{	\n"
 "	height: 2em;\n"
 " 	border-style: solid;\n"
@@ -95,12 +95,12 @@ class EditBookForm(object):
 "   	background-color:#0069c0;\n"
 "	color:white;\n"
 "}")
-        self.addButton.setFlat(False)
-        self.addButton_2 = QPushButton(newBookWindow)
-        self.addButton_2.setObjectName(u"addButton_2")
-        self.addButton_2.setGeometry(QRect(300, 440, 91, 21))
-        self.addButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.addButton_2.setStyleSheet(u"QPushButton\n"
+        self.editButton.setFlat(False)
+        self.cancelButton = QPushButton(newBookWindow)
+        self.cancelButton.setObjectName(u"cancelButton")
+        self.cancelButton.setGeometry(QRect(300, 440, 91, 21))
+        self.cancelButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cancelButton.setStyleSheet(u"QPushButton\n"
 "{	\n"
 "	height: 2em;\n"
 " 	border-style: solid;\n"
@@ -114,7 +114,7 @@ class EditBookForm(object):
 "   	background-color:grey;\n"
 "	color:white;\n"
 "}")
-        self.addButton_2.setFlat(False)
+        self.cancelButton.setFlat(False)
         self.pagQtySpinBox_2 = QSpinBox(newBookWindow)
         self.pagQtySpinBox_2.setObjectName(u"pagQtySpinBox_2")
         self.pagQtySpinBox_2.setGeometry(QRect(160, 190, 126, 21))
@@ -134,10 +134,10 @@ class EditBookForm(object):
         self.label_3.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Category:</span></p></body></html>", None))
         self.label_4.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Pages:</span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Select file:</span></p></body></html>", None))
-        self.slectPathButton.setText(QCoreApplication.translate("newBookWindow", u"Select", None))
+        self.selectPathButton.setText(QCoreApplication.translate("newBookWindow", u"Select", None))
         self.label_6.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Description:</span></p></body></html>", None))
-        self.addButton.setText(QCoreApplication.translate("newBookWindow", u"Edit", None))
-        self.addButton_2.setText(QCoreApplication.translate("newBookWindow", u"Cancel", None))
+        self.editButton.setText(QCoreApplication.translate("newBookWindow", u"Edit", None))
+        self.cancelButton.setText(QCoreApplication.translate("newBookWindow", u"Cancel", None))
         self.label_7.setText(QCoreApplication.translate("newBookWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Pages read:</span></p></body></html>", None))
     # retranslateUi
 
