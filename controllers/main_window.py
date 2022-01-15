@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView
 #QTableWidgetItem se utiliza para los datos
 #QAbstractItemView la utilizaremos para seleccionar toda las celdas correspondienes al libro
 from views.main_window import Bookdepository
-from db.books import select_all_books, select_book_by_title, select_book_by_category
+from db.books import select_all_books, select_book_by_title, select_book_by_category, delete_book
 import os
 import webbrowser
 
@@ -24,9 +24,13 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
         self.table_config()
         self.populate_table(select_all_books())
         self.populate_combobox()
-        self.refreshbutton.clicked.connect(self.populate_table)
+        self.delete_book_button.clicked.connect(self.remove_book)  
         self.open_Book_Button.clicked.connect(self.open_book)
         self.searchButton.clicked.connect(self.search)
+
+        #Para poder usar el refresh button debemos usar funciones lambda
+        #porque no puede recibir funciones que reciben una funcion como parametro
+        self.refreshbutton.clicked.connect(lambda: self.populate_table(select_all_books()))
 
     def open_book(self): #Abriremos los libros con la app predefinida del sistema
         select_row = self.listbooktable.selectedItems() #debemos seleccionar primero la fila
@@ -61,7 +65,22 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
         
 
     def remove_book(self):
-        pass
+        selected_row = self.listbooktable.selectedItems()
+
+        if selected_row:
+            book_id = int(selected_row[0].text())
+            #cuando eliminamos un libro queremos sacarlo de la base de datos y de la vista en la app
+            row = selected_row[0].row()
+            #Primero lo eliminamos de la base de datos
+            if delete_book(book_id):
+                #si fue eliminado debemos obtener el path
+                file_path = selected_row[5].text()
+                #Eliminamos la fila de la tabla 
+                self.listbooktable.removeRow(row)
+                #Eliminamos del path
+                os.remove(file_path)
+        
+        self.record_qty()
 
     def table_config(self): #colocaremos la configuraciones de la tabla, captura el ojeto de la tabla
         colum_headers = ("Book_ID", "Title", "Category", "Page Qty", "Read page Qty", "PATH", "Description")
