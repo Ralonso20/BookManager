@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView
 #QTableWidgetItem se utiliza para los datos
 #QAbstractItemView la utilizaremos para seleccionar toda las celdas correspondienes al libro
 from views.main_window import Bookdepository
-from db.books import select_all_books
+from db.books import select_all_books, select_book_by_title, select_book_by_category
 import os
 import webbrowser
 
@@ -22,9 +22,11 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
         self.open_edit_book_button.clicked.connect(self.open_edit_book_window)
 
         self.table_config()
-        self.populate_table()
+        self.populate_table(select_all_books())
+        self.populate_combobox()
         self.refreshbutton.clicked.connect(self.populate_table)
         self.open_Book_Button.clicked.connect(self.open_book)
+        self.searchButton.clicked.connect(self.search)
 
     def open_book(self): #Abriremos los libros con la app predefinida del sistema
         select_row = self.listbooktable.selectedItems() #debemos seleccionar primero la fila
@@ -67,8 +69,7 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
         self.listbooktable.setHorizontalHeaderLabels(colum_headers) #Enviamos los textos de cada columna
         self.listbooktable.setSelectionBehavior(QAbstractItemView.SelectRows)
 
-    def populate_table(self): #esta funcion va a cargar los datos en la tabla
-        data = select_all_books() #Pedidmos la data directo de la consulta
+    def populate_table(self, data): #esta funcion va a cargar los datos en la tabla
         self.listbooktable.setRowCount(len(data)) #necesitamos la cantidad de registros de la tabla
 
         for(index_row, row) in enumerate(data): #recive el indice y los datos de cada fila, enumarate retorna las filas y los datos
@@ -76,18 +77,39 @@ class BookdepositoryWindow(QWidget, Bookdepository): #Heredamos de estas dos cla
                 #La funcion setItem utiliza 3 elementos, el 3ro son los datos para eso usamos la libreria Qtablewidgetitem
                 self.listbooktable.setItem(index_row, index_cell, QTableWidgetItem(str(cell))) #cada celda debemos convertitrla en strig
 
+        self.record_qty()
+
 
     def populate_combobox(self): #esta funcion nos va a dar las opciones para filtrar los libros
-        pass
+        cb_options = ("", "Titile", "Category")
+        self.searchByComboBox.addItems(cb_options)
 
-    def search_book_by_title(self):
-        pass
+    def search_book_by_title(self, title):
+        data = select_book_by_title(title)
+        self.populate_table(data)
 
-    def search_book_by_category(self):
-        pass
+    def search_book_by_category(self, category):
+        data = select_book_by_category(category)
+        self.populate_table(data)
 
     def search(self): #en base a lo que seleccionamos la funcion va a llamar a buscar por titulo o categoria
-        pass
+        option_selected = self.searchByComboBox.currentText()
+        parameter = self.ParametrelineEdit.text()
+
+        if option_selected == "":
+            print("You must select an option")
+        else:
+            if parameter == "":
+                print("You must write your consult")
+            else:
+                if option_selected == "Title":
+                    self.search_book_by_title
+                elif option_selected == "Category":
+                    self.search_book_by_category
+        
+        
+
 
     def record_qty(self): #cuenta la cantidad de filas de la tabla para la cantidad de libros
-        pass
+        qty_rows = str(self.listbooktable.rowCount()) #Nos devuelve el numero de registros mostrados como entero, pero debemos mandarlo como str
+        self.booksQtyLabel.setText(qty_rows)
